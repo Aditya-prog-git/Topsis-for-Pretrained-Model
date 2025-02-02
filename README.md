@@ -1,56 +1,74 @@
-# Text Classification TOPSIS Analysis
+# TOPSIS-Based Evaluation of Pre-trained NLP Models
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/your_username/text-classification-topsis)](https://github.com/your_username/text-classification-topsis/issues)
-[![GitHub stars](https://img.shields.io/github/stars/your_username/text-classification-topsis)](https://github.com/your_username/text-classification-topsis/stargazers)
+## 📌 Overview
+This project applies the **TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution)** method to evaluate and rank pre-trained NLP models for **text classification** based on multiple performance criteria.
 
-Welcome to the **Text Classification TOPSIS Analysis** project! This repository demonstrates how to evaluate and rank pre-trained text classification models using the TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution) method. The project provides interactive visualizations and a complete pipeline—from data normalization to ranking—and saves the resulting graphs for easy sharing.
+## 🏆 Models Evaluated
+- **BERT**
+- **RoBERTa**
+- **XLNet**
+- **DistilBERT**
+- **ALBERT**
+
+## 📊 Evaluation Criteria
+The models are ranked based on the following criteria:
+
+| Criterion            | Type     | Weight |
+|---------------------|---------|--------|
+| Accuracy (%)       | Benefit | 0.40   |
+| F1 Score (%)       | Benefit | 0.30   |
+| Inference Time (s) | Cost    | 0.15   |
+| Model Size (MB)    | Cost    | 0.15   |
+
+## 🏅 TOPSIS Ranking Results
+The final ranking of the models based on their TOPSIS score:
+
+| Rank | Model      | TOPSIS Score |
+|------|-----------|--------------|
+| 🥇  | ALBERT    | 0.935395     |
+| 🥈  | DistilBERT| 0.751880     |
+| 🥉  | RoBERTa   | 0.320117     |
+| 4️⃣  | BERT      | 0.295476     |
+| 5️⃣  | XLNet     | 0.075154     |
+
+## 📈 Visualizations
+The project includes the following visualizations:
+- **Bar Chart**: Ranking of models based on TOPSIS score.
+- **Radar Chart**: Performance distribution of each model.
+- **Heatmap**: Weighted normalized decision matrix.
+- **Pairwise Scatter Plot Matrix**: Relationship between evaluation metrics.
+
+## 🛠 How to Run
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/topsis-nlp-ranking.git
+   cd topsis-nlp-ranking
+   ```
+2. Install dependencies:
+   ```bash
+   pip install numpy pandas matplotlib seaborn
+   ```
+3. Run the script:
+   ```bash
+   python topsis_analysis.py
+   ```
+4. View the results and visualizations.
+
+## 📂 Project Structure
+```
+📦 topsis-nlp-ranking
+├── 📜 README.md  # This file
+├── 📜 topsis_analysis.py  # Python script for TOPSIS calculation
+├── 📊 results/  # Folder for storing output graphs and tables
+└── 📁 data/  # Folder for datasets (if any)
+```
+
+## 🚀 Contribution
+Feel free to fork this repository and enhance the analysis! 😊
+
+## 📌 References
+- [TOPSIS Method - Wikipedia](https://en.wikipedia.org/wiki/TOPSIS)
+- [Hugging Face Model Hub](https://huggingface.co/models)
 
 ---
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Visualizations](#visualizations)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
----
-
-## Overview
-
-In this project, we compare multiple pre-trained models for text classification (e.g., BERT, RoBERTa, XLNet, DistilBERT, and ALBERT) across several evaluation criteria such as:
-
-- **Accuracy (%)** (benefit criterion)
-- **F1 Score (%)** (benefit criterion)
-- **Inference Time (sec)** (cost criterion)
-- **Model Size (MB)** (cost criterion)
-
-Using the TOPSIS method, we normalize the decision matrix, apply weights to the criteria, and determine the relative closeness of each model to the ideal solution. This process results in an intuitive ranking of models based on their performance.
-
----
-
-## Features
-
-- **Interactive Visualizations:**  
-  - **Bar Chart:** Displaying TOPSIS scores for ranking models.  
-  - **Radar Charts:** Visualizing each model's performance across all criteria.  
-  - **Heatmap:** Showing the weighted normalized decision matrix.  
-  - **Pairwise Scatter Plot Matrix:** Exploring relationships between evaluation metrics.
-
-- **Automated Graph Saving:**  
-  All visualizations are automatically saved in the `results/` directory for easy review and sharing.
-
-- **Reproducible Analysis:**  
-  Easily re-run the analysis with updated metrics or weights to explore different scenarios.
-
----
-
-## Project Structure
-
+💡 **Created as part of an academic assignment**
